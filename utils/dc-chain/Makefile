@@ -88,7 +88,7 @@ all: patch build
 binutils_patches    := $(wildcard $(patches)/binutils-$(binutils_ver)*.diff)
 gcc_patches    := $(wildcard $(patches)/gcc-$(gcc_ver)*.diff)
 newlib_patches := $(wildcard $(patches)/newlib-$(newlib_ver)*.diff)
-kos_patches    := $(wildcard $(patches)/kos-$(gcc_ver)*.diff)
+kos_patches    := $(wildcard $(patches)/kos-gcc-$(gcc_ver)*.diff)
 
 patch_targets=patch-binutils patch-gcc patch-newlib patch-kos
 
@@ -108,7 +108,7 @@ $(gcc_patches):
 	patch -N -d $(gcc_dir) -p1 < $@
 
 $(kos_patches):
-	patch -N -d $(kos_root) -p1 < $@
+	patch -N -d $(kos_base) -p1 < $@
 
 # ---- }}}
 
