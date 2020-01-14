@@ -29,8 +29,8 @@ kos_root=$(CURDIR)/../../..
 # kos_base: equivalent of KOS_BASE (contains include/ and kernel/)
 kos_base=$(CURDIR)/../..
 binutils_ver=2.31.1
-gcc_ver=4.7.3
-newlib_ver=2.0.0
+gcc_ver=5.2.0
+newlib_ver=2.2.0
 gdb_ver=7.11.1
 insight_ver=6.8-1
 
@@ -47,7 +47,7 @@ verbose=1
 # Tracking down problems with multiple make jobs is much more difficult than
 # with just one running at a time. So, if you run into trouble, then you should
 # clear this variable and try again with just one job running.
-makejobs=-j4
+makejobs=-j8
 
 # Set the languages to build for pass 2 of building gcc for sh-elf. The default
 # here is to build C, C++, Objective C, and Objective C++. You may want to take
@@ -88,7 +88,7 @@ all: patch build
 binutils_patches    := $(wildcard $(patches)/binutils-$(binutils_ver)*.diff)
 gcc_patches    := $(wildcard $(patches)/gcc-$(gcc_ver)*.diff)
 newlib_patches := $(wildcard $(patches)/newlib-$(newlib_ver)*.diff)
-kos_patches    := $(wildcard $(patches)/kos-*.diff)
+kos_patches    := $(wildcard $(patches)/kos-$(gcc_ver)*.diff)
 
 patch_targets=patch-binutils patch-gcc patch-newlib patch-kos
 
