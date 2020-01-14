@@ -1,0 +1,36 @@
+# KallistiOS ##version##
+#
+# arch/dreamcast/hardware/Makefile
+# (c)2000-2001 Dan Potter
+#
+
+# Init wrapper
+OBJS = hardware.o
+
+# BIOS services
+OBJS += biosfont.o cdrom.o flashrom.o
+
+# Sound
+OBJS += spu.o spudma.o
+
+# Bus support
+OBJS += asic.o g2bus.o
+
+# Video-related
+OBJS += video.o vblank.o
+
+# CPU-related
+OBJS += sq.o scif.o
+
+# SPI device support
+OBJS += scif-spi.o sd.o
+
+# G1 Bus ATA support
+OBJS += g1ata.o
+
+SUBDIRS = pvr network maple modem
+
+include $(KOS_BASE)/Makefile.prefab
+
+
+
