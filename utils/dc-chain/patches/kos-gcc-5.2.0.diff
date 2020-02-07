@@ -321,19 +321,6 @@ index 331bcbe..04f38b9 100644
          }
          else {
              device.wdma_modes = 0;
-diff --git a/kernel/arch/dreamcast/include/arch/arch.h b/kernel/arch/dreamcast/include/arch/arch.h
-index 847d53c..807632c 100644
---- a/kernel/arch/dreamcast/include/arch/arch.h
-+++ b/kernel/arch/dreamcast/include/arch/arch.h
-@@ -48,7 +48,7 @@ __BEGIN_DECLS
- #define DEFAULT_PIXEL_MODE  PM_RGB565
- 
- /** \brief  Default serial bitrate. */
--#define DEFAULT_SERIAL_BAUD 57600
-+#define DEFAULT_SERIAL_BAUD 115200
- 
- /** \brief  Default serial FIFO behavior. */
- #define DEFAULT_SERIAL_FIFO 1
 diff --git a/kernel/arch/dreamcast/include/arch/cache.h b/kernel/arch/dreamcast/include/arch/cache.h
 index 1c648aa..107e7f7 100644
 --- a/kernel/arch/dreamcast/include/arch/cache.h
