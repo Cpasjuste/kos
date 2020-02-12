@@ -68,7 +68,7 @@ index a41cd69..1101a71 100644
      mutex_lock(&_g1_ata_mutex);
      /* Make sure to select the GD-ROM drive. */
 diff --git a/kernel/arch/dreamcast/hardware/g1ata.c b/kernel/arch/dreamcast/hardware/g1ata.c
-index 331bcbe..04f38b9 100644
+index 331bcbe..40f7274 100644
 --- a/kernel/arch/dreamcast/hardware/g1ata.c
 +++ b/kernel/arch/dreamcast/hardware/g1ata.c
 @@ -1,7 +1,7 @@
@@ -313,6 +313,15 @@ index 331bcbe..04f38b9 100644
  static int g1_ata_set_transfer_mode(uint8_t mode) {
      uint8_t status;
  
+@@ -968,7 +1065,7 @@ static int g1_ata_scan(void) {
+     st = IN8(G1_ATA_STATUS_REG);
+ 
+     /* Check if there's anything on the bus. */
+-    if(!st || st == 0xFF) {
++    if(!st || st == 0xFF || st == 0xEC) {
+         rv = 0;
+         goto out;
+     }
 @@ -1034,6 +1131,7 @@ static int g1_ata_scan(void) {
          if(!g1_ata_set_transfer_mode(ATA_TRANSFER_WDMA(2))) {
              OUT32(G1_ATA_DMA_RACCESS_WAIT, G1_ACCESS_WDMA_MODE2);
